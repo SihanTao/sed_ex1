@@ -1,5 +1,6 @@
 package ic.doc;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,8 +16,8 @@ public class RecentUsedList<T> {
     return true;
   }
 
-  public boolean add(T i) {
-    elements.add(i);
+  public boolean add(T elem) {
+    elements.add(0, elem);
     return true;
   }
 
