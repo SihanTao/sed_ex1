@@ -13,4 +13,9 @@ public class RecentlyUsedListTest {
         assertTrue(new RecentUsedList().isEmpty());
     }
 
+    @Test
+    public void ableToAddToList() {
+        assertTrue(new RecentUsedList().add(1));
+    }
+
 }
