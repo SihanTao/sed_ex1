@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RecentUsedList<T> {
 
-  private final List<T> elements;
+  private final LinkedList<T> elements;
 
   public RecentUsedList() {
     this.elements = new LinkedList<>();
@@ -17,7 +17,7 @@ public class RecentUsedList<T> {
   }
 
   public boolean add(T elem) {
-    elements.add(0, elem);
+    elements.addFirst(elem);
     return true;
   }
 
