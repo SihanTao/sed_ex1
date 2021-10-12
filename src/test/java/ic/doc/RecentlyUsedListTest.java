@@ -35,4 +35,17 @@ public class RecentlyUsedListTest {
     assertThat(recentUsedList.retrieve(0), is(3));
   }
 
+  @Test
+  public void duplicateInsertionsRemoved() {
+    RecentUsedList<Integer> recentUsedList = new RecentUsedList<>();
+    recentUsedList.add(1);
+    recentUsedList.add(2);
+    recentUsedList.add(3);
+    recentUsedList.add(2);
+    assertThat(recentUsedList.retrieve(0), is(2));
+    assertThat(recentUsedList.retrieve(1), is(3));
+    assertThat(recentUsedList.retrieve(2), is(1));
+    assertThat(recentUsedList.size(), is(3));
+  }
+
 }
