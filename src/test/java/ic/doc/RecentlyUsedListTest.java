@@ -11,49 +11,49 @@ public class RecentlyUsedListTest {
 
   @Test
   public void listEmptyWhenInit() {
-    assertTrue(new RecentUsedList<Integer>().isEmpty());
+    assertTrue(new RecentlyUsedList<Integer>().isEmpty());
   }
 
   @Test
   public void ableToAddToList() {
-    assertTrue(new RecentUsedList<Integer>().add(1));
-    assertTrue(new RecentUsedList<Integer>().add(2));
+    assertTrue(new RecentlyUsedList<Integer>().add(1));
+    assertTrue(new RecentlyUsedList<Integer>().add(2));
   }
 
   @Test
   public void ableToRetrieveFromList() {
-    RecentUsedList<Integer> recentUsedList = new RecentUsedList<>();
-    recentUsedList.add(100);
-    assertThat(recentUsedList.retrieve(0), is(100));
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
+    recentlyUsedList.add(100);
+    assertThat(recentlyUsedList.retrieve(0), is(100));
   }
 
   @Test
   public void mostRecentItemIsTheFirst() {
-    RecentUsedList<Integer> recentUsedList = new RecentUsedList<>();
-    recentUsedList.add(1);
-    recentUsedList.add(2);
-    recentUsedList.add(3);
-    assertThat(recentUsedList.retrieve(0), is(3));
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
+    recentlyUsedList.add(1);
+    recentlyUsedList.add(2);
+    recentlyUsedList.add(3);
+    assertThat(recentlyUsedList.retrieve(0), is(3));
   }
 
   @Test
   public void duplicateInsertionsRemoved() {
-    RecentUsedList<Integer> recentUsedList = new RecentUsedList<>();
-    recentUsedList.add(1);
-    recentUsedList.add(2);
-    recentUsedList.add(3);
-    recentUsedList.add(2);
-    assertThat(recentUsedList.retrieve(0), is(2));
-    assertThat(recentUsedList.retrieve(1), is(3));
-    assertThat(recentUsedList.retrieve(2), is(1));
-    assertThat(recentUsedList.size(), is(3));
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
+    recentlyUsedList.add(1);
+    recentlyUsedList.add(2);
+    recentlyUsedList.add(3);
+    recentlyUsedList.add(2);
+    assertThat(recentlyUsedList.retrieve(0), is(2));
+    assertThat(recentlyUsedList.retrieve(1), is(3));
+    assertThat(recentlyUsedList.retrieve(2), is(1));
+    assertThat(recentlyUsedList.size(), is(3));
   }
 
   @Test
   public void failToAddNull() {
-    RecentUsedList<Integer> recentUsedList = new RecentUsedList<>();
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
     try {
-      recentUsedList.add(null);
+      recentlyUsedList.add(null);
       fail("Should throw an exception.");
     } catch (IllegalArgumentException e) {
       assertThat(e.getMessage(), containsString("Cannot add null to the list."));

@@ -1,15 +1,12 @@
 package ic.doc;
 
-import java.util.Deque;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
-public class RecentUsedList<T> {
+public class RecentlyUsedList<T> {
 
   private final LinkedList<T> elements;
 
-  public RecentUsedList() {
+  public RecentlyUsedList() {
     this.elements = new LinkedList<>();
   }
 
