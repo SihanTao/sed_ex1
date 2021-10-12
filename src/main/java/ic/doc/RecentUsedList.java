@@ -18,12 +18,12 @@ public class RecentUsedList<T> {
   }
 
   public boolean add(T elem) {
-    if (elements.contains(elem)) {
-      elements.remove(elem);
+    if (elem == null) {
+      throw new IllegalArgumentException("Cannot add null to the list.");
     }
+    elements.remove(elem);
     elements.addFirst(elem);
     return true;
-
   }
 
   public T retrieve(int i) {

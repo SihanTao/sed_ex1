@@ -3,8 +3,9 @@ package ic.doc;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class RecentlyUsedListTest {
 
@@ -46,6 +47,17 @@ public class RecentlyUsedListTest {
     assertThat(recentUsedList.retrieve(1), is(3));
     assertThat(recentUsedList.retrieve(2), is(1));
     assertThat(recentUsedList.size(), is(3));
+  }
+
+  @Test
+  public void failToAddNull() {
+    RecentUsedList<Integer> recentUsedList = new RecentUsedList<>();
+    try {
+      recentUsedList.add(null);
+      fail("Should throw an exception.");
+    } catch (IllegalArgumentException e) {
+      assertThat(e.getMessage(), containsString("Cannot add null to the list."));
+    }
   }
 
 }
