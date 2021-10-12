@@ -1,16 +1,26 @@
 package ic.doc;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class RecentUsedList<T> {
-    public RecentUsedList() {
-        //...
-    }
 
-    public boolean isEmpty() {
-        return true;
-    }
+  private final List<T> elements;
 
+  public RecentUsedList() {
+    this.elements = new LinkedList<>();
+  }
 
-    public boolean add(T i) {
-        return true;
-    }
+  public boolean isEmpty() {
+    return true;
+  }
+
+  public boolean add(T i) {
+    elements.add(i);
+    return true;
+  }
+
+  public T retrieve(int i) {
+    return elements.get(i);
+  }
 }
