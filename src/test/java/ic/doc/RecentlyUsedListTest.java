@@ -49,15 +49,4 @@ public class RecentlyUsedListTest {
     assertThat(recentlyUsedList.size(), is(3));
   }
 
-  @Test
-  public void failToAddNull() {
-    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
-    try {
-      recentlyUsedList.add(null);
-      fail("Should throw an exception.");
-    } catch (IllegalArgumentException e) {
-      assertThat(e.getMessage(), containsString("Cannot add null to the list."));
-    }
-  }
-
 }
