@@ -11,7 +11,7 @@ public class RecentlyUsedList<T> {
   }
 
   public boolean isEmpty() {
-    return true;
+    return elements.size() == 0;
   }
 
   public boolean add(T elem) {
