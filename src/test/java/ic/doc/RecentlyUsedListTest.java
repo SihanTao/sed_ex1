@@ -3,9 +3,8 @@ package ic.doc;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class RecentlyUsedListTest {
 
