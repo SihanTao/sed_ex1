@@ -35,6 +35,11 @@ public class RecentlyUsedList<T> {
           "RecentlyUsedList.java: retrieve: " + "Illegal Argument: The index is negative.");
     }
 
+    if (i >= size()) {
+      throw new IndexOutOfBoundsException(
+          "RecentlyUsedList.java: retrieve: " + "Index Out Of Bounds: The index is too large");
+    }
+
     return elements.get(i);
   }
 
