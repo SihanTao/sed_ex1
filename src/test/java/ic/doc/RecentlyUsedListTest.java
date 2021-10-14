@@ -99,4 +99,18 @@ public class RecentlyUsedListTest {
       assertThat(e.getMessage(), containsString("Unsupported Operation: The index is negative"));
     }
   }
+
+  @Test
+  public void failToRetrieveElemFromTooLargeIndex() {
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
+    recentlyUsedList.add(1);
+    recentlyUsedList.add(2);
+    recentlyUsedList.add(3);
+    try {
+      recentlyUsedList.retrieve(5);
+      fail("Should throw an exception.");
+    } catch (IndexOutOfBoundsException e) {
+      assertThat(e.getMessage(), containsString("Index Out Of Bounds: The index is negative"));
+    }
+  }
 }
