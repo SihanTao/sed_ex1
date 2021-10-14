@@ -35,6 +35,16 @@ public class RecentlyUsedListTest {
     recentlyUsedList.add(2);
     recentlyUsedList.add(3);
     assertThat(recentlyUsedList.retrieve(0), is(3));
+
+    RecentlyUsedList<Integer> recentlyUsedList2 = new RecentlyUsedList<>();
+    recentlyUsedList2.add(3);
+    recentlyUsedList2.add(4);
+    recentlyUsedList2.add(5);
+    assertThat(recentlyUsedList2.retrieve(0), is(5));
+
+    recentlyUsedList2.add(4);
+    recentlyUsedList2.add(3);
+    assertThat(recentlyUsedList2.retrieve(0), is(3));
   }
 
   @Test
@@ -42,6 +52,12 @@ public class RecentlyUsedListTest {
     RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
     recentlyUsedList.add(1);
     recentlyUsedList.add(2);
+    recentlyUsedList.add(3);
+    recentlyUsedList.add(2);
+    assertThat(recentlyUsedList.retrieve(0), is(2));
+    assertThat(recentlyUsedList.retrieve(1), is(3));
+    assertThat(recentlyUsedList.retrieve(2), is(1));
+    assertThat(recentlyUsedList.size(), is(3));
     recentlyUsedList.add(3);
     recentlyUsedList.add(2);
     assertThat(recentlyUsedList.retrieve(0), is(2));
