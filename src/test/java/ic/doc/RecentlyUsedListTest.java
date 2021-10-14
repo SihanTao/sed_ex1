@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class RecentlyUsedListTest {
 
@@ -47,6 +48,17 @@ public class RecentlyUsedListTest {
     assertThat(recentlyUsedList.retrieve(1), is(3));
     assertThat(recentlyUsedList.retrieve(2), is(1));
     assertThat(recentlyUsedList.size(), is(3));
+  }
+
+  @Test
+  public void failToAddNull() {
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
+    try {
+      recentlyUsedList.add(null);
+      fail("Should throw an exception.");
+    } catch (IllegalArgumentException e) {
+      assertThat(e.getMessage(), containsString("Cannot add null to the list."));
+    }
   }
 
 }
