@@ -88,4 +88,17 @@ public class RecentlyUsedListTest {
       assertThat(e.getMessage(), containsString("Illegal Argument: The index is negative"));
     }
   }
+
+  @Test
+  public void failToRetrieveFromEmptyList() {
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
+    recentlyUsedList.add(4);
+    try {
+      recentlyUsedList.retrieve(-1);
+      fail("Should throw an exception.");
+    } catch (UnsupportedOperationException e) {
+      assertThat(e.getMessage(), containsString("Unsupported Operation: The index is negative"));
+    }
+  }
+
 }
