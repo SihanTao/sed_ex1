@@ -25,6 +25,11 @@ public class RecentlyUsedList<T> {
   }
 
   public T retrieve(int i) {
+    if (i < 0) {
+      throw new IllegalArgumentException(
+          "RecentlyUsedList.java: retrieve: " + "Illegal Argument: The index is negative.");
+    }
+
     return elements.get(i);
   }
 

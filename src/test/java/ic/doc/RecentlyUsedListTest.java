@@ -77,4 +77,15 @@ public class RecentlyUsedListTest {
     }
   }
 
+  @Test
+  public void failToRetrieveNegativeIndex() {
+    RecentlyUsedList<Integer> recentlyUsedList = new RecentlyUsedList<>();
+    recentlyUsedList.add(4);
+    try {
+      recentlyUsedList.retrieve(-1);
+      fail("Should throw an exception.");
+    } catch (IllegalArgumentException e) {
+      assertThat(e.getMessage(), containsString("Illegal Argument: The index is negative"));
+    }
+  }
 }
