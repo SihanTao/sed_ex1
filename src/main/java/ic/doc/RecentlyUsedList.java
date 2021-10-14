@@ -15,6 +15,10 @@ public class RecentlyUsedList<T> {
   }
 
   public boolean add(T elem) {
+    if (elem == null) {
+      throw new IllegalArgumentException("Cannot add null to the list.");
+    }
+
     elements.remove(elem);
     elements.addFirst(elem);
     return true;
