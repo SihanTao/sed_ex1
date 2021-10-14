@@ -27,17 +27,17 @@ public class RecentlyUsedList<T> {
   public T retrieve(int i) {
     if (isEmpty()) {
       throw new UnsupportedOperationException(
-          "RecentlyUsedList.java: retrieve: " + "Unsupported Operation: The index is negative");
+          "RecentlyUsedList.java: retrieve: Unsupported Operation: The index is negative");
     }
 
     if (i < 0) {
       throw new IllegalArgumentException(
-          "RecentlyUsedList.java: retrieve: " + "Illegal Argument: The index is negative.");
+          "RecentlyUsedList.java: retrieve: Illegal Argument: The index is negative.");
     }
 
     if (i >= size()) {
       throw new IndexOutOfBoundsException(
-          "RecentlyUsedList.java: retrieve: " + "Index Out Of Bounds: The index is too large");
+          "RecentlyUsedList.java: retrieve: Index Out Of Bounds: The index is too large");
     }
 
     return elements.get(i);
